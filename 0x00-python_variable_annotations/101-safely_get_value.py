@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 '''More involved type annotations'''
 
-from typing import Any, Dict, TypeVar
+from typing import Any, Mapping, TypeVar, Union
 
-K = TypeVar('K')
-'''Type variable for the key in the dictionary'''
-V = TypeVar('V')
+T = TypeVar('T')
 '''Type variable for the value in the dictionary'''
 
 
-def safely_get_value(dct: Dict[K, V], key: K, default: V = None) -> V:
+def safely_get_value(dct: Mapping, key: Any, default: 
+        Union[T, None] = None) -> Union[Any, T]:
     """
     Safely gets the value associated with the specified key in the dictionary.
     If the key is not present, returns the default value.
