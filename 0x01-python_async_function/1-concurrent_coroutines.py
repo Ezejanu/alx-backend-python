@@ -21,6 +21,11 @@ async def wait_n(n: int, max_delay: int = 10) -> List[float]:
         List[float]: List of delays in ascending order.
     """
 
+    # Check for non-negative integer values for n and max_delay
+    if not isinstance(n, int) or \
+            not isinstance(max_delay, int) or n < 0 or max_delay < 0:
+        raise ValueError
+
     # Use gather to concurrently spawn wait_random n times
     tasks = [wait_random(max_delay) for _ in range(n)]
     delays = await asyncio.gather(*tasks)
