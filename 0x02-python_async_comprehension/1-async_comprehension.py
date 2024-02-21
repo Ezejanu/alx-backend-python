@@ -2,6 +2,7 @@
 '''a coroutine called async_comprehension that takes no arguments.'''
 
 import asyncio
+from typing import List, AsyncGenerator
 async_generator = __import__('0-async_generator').async_generator
 
 
