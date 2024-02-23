@@ -22,8 +22,9 @@ async def wait_n(n: int, max_delay: int = 10) -> List[float]:
     """
 
     # Check for non-negative integer values for n and max_delay
-    if not isinstance(n, int) or \
-            not isinstance(max_delay, int) or n < 0 or max_delay < 0:
+    if not (isinstance(n, int) or isinstance(n, float)) or not\
+            (isinstance(max_delay, int) or isinstance(max_delay, float))\
+            or n < 0 or max_delay < 0:
         raise ValueError
 
     # Use gather to concurrently spawn wait_random n times
