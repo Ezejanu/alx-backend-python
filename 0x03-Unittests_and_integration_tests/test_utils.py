@@ -29,7 +29,9 @@ class TestAccessNestedMap(unittest.TestCase):
         """
         self.assertEqual(access_nested_map(nested_map, path), expected_result)
 
-    def test_access_nested_map_exception(self, nested_map, path, expected_exception_message):
+    def test_access_nested_map_exception(self,
+                                         nested_map, path,
+                                         expected_exception_message):
         """
         Test that access_nested_map raises a KeyError for specific inputs.
 
@@ -45,7 +47,6 @@ class TestAccessNestedMap(unittest.TestCase):
             access_nested_map(nested_map, path)
 
         self.assertEqual(str(context.exception), expected_exception_message)
-
 
     if __name__ == '__main__':
         unittest.main()
